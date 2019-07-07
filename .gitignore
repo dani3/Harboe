@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Harboe binaries
+bin-int/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -87,3 +90,5 @@ ipch/
 
 # Local History for Visual Studio
 .localhistory/
+
+*.tlog
