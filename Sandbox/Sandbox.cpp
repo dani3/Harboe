@@ -14,7 +14,4 @@ public:
 	}
 };
 
-Harboe::Application* Harboe::CreateApplication()
-{
-	return new Sandbox();
-}
+Harboe::Application* Harboe::CreateApplication();
