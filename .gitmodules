@@ -1,0 +1,3 @@
+[submodule "Harboe/vendor/spdlog"]
+	path = Harboe/vendor/spdlog
+	url = https://github.com/gabime/spdlog

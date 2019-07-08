@@ -27,9 +27,15 @@
     <ClInclude Include="src\Harboe\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Harboe\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Harboe\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
