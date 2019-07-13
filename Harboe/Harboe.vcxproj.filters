@@ -4,6 +4,9 @@
     <Filter Include="Harboe">
       <UniqueIdentifier>{B6EDEDB6-A28F-188D-8B4A-2CE1778B9FDD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Harboe\Events">
+      <UniqueIdentifier>{DA50A4BE-4611-20F5-0F4C-69727BCB64D1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Harboe.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Harboe\EntryPoint.h">
       <Filter>Harboe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Events\ApplicationEvent.h">
+      <Filter>Harboe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Events\Event.h">
+      <Filter>Harboe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Events\KeyEvent.h">
+      <Filter>Harboe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Events\MouseEvent.h">
+      <Filter>Harboe\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Harboe\Log.h">
       <Filter>Harboe</Filter>

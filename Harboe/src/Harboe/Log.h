@@ -4,6 +4,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 // Core log macros
 #define HB_CORE_TRACE(...)      ::Harboe::Log::GetCoreLogger()->trace(__VA_ARGS__)
