@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Harboe
 {
 	class HARBOE_API MouseMovedEvent : public Event

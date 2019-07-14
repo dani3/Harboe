@@ -1,4 +1,6 @@
+#include "hbpch.h"
 #include "Application.h"
+
 #include "Harboe/Events/ApplicationEvent.h"
 #include "Harboe/Log.h"
 

@@ -18,6 +18,9 @@ project "Harboe"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "hbpch.h"
+    pchsource "Harboe/src/hbpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",

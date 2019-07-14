@@ -2,9 +2,6 @@
 
 #include "Harboe/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Harboe
 {
 	// Events in Harboe are currently blocking, meaning when an event occurs it
