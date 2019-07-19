@@ -2,13 +2,12 @@
 #include "Application.h"
 
 #include "Harboe/Events/ApplicationEvent.h"
-#include "Harboe/Log.h"
 
 namespace Harboe
 {
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -18,9 +17,9 @@ namespace Harboe
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(100, 200);
-		HB_TRACE(e);
-
-		while (true);
+		while (m_Running)
+		{
+			m_Window->OnUpdate();
+		}
 	}
 }

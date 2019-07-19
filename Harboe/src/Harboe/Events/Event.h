@@ -1,5 +1,6 @@
 #pragma once
 
+#include "hbpch.h"
 #include "Harboe/Core.h"
 
 namespace Harboe

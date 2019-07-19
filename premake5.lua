@@ -10,6 +10,12 @@ workspace "Harboe"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Harboe/vendor/GLFW/include"
+
+include "Harboe/vendor/GLFW"
+
 project "Harboe"
     location "Harboe"
     kind "SharedLib"
@@ -30,7 +36,14 @@ project "Harboe"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -50,7 +63,7 @@ project "Harboe"
         }
 
     filter "configurations:Debug"
-        defines "HB_DEBUG"
+        defines { "HB_DEBUG", "HB_ENABLE_ASSERTS" }
         symbols "On"
 
     filter "configurations:Release"

@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Harboe/Log.h"
+
 #ifdef HB_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

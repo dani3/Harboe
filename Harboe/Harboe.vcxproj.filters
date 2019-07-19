@@ -7,6 +7,9 @@
     <Filter Include="Harboe\Events">
       <UniqueIdentifier>{DA50A4BE-4611-20F5-0F4C-69727BCB64D1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Harboe.h" />
@@ -34,6 +37,12 @@
     <ClInclude Include="src\Harboe\Log.h">
       <Filter>Harboe</Filter>
     </ClInclude>
+    <ClInclude Include="src\Harboe\Window.h">
+      <Filter>Harboe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\WindowsWindow.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\hbpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="src\Harboe\Log.cpp">
       <Filter>Harboe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\WindowsWindow.cpp">
+      <Filter>Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\hbpch.cpp" />
   </ItemGroup>
