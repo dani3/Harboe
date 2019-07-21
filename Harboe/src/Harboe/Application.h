@@ -3,6 +3,8 @@
 #include "Core.h"
 #include "Window.h"
 
+#include "Harboe/Events/ApplicationEvent.h"
+
 namespace Harboe
 {
 	class HARBOE_API Application
@@ -13,7 +15,11 @@ namespace Harboe
 
 		void Run();
 
+		void OnEvent(Event& e);
+
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};
