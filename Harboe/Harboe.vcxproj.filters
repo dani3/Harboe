@@ -34,6 +34,12 @@
     <ClInclude Include="src\Harboe\Events\MouseEvent.h">
       <Filter>Harboe\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Harboe\Layer.h">
+      <Filter>Harboe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\LayerStack.h">
+      <Filter>Harboe</Filter>
+    </ClInclude>
     <ClInclude Include="src\Harboe\Log.h">
       <Filter>Harboe</Filter>
     </ClInclude>
@@ -47,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Harboe\Application.cpp">
+      <Filter>Harboe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Layer.cpp">
+      <Filter>Harboe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\LayerStack.cpp">
       <Filter>Harboe</Filter>
     </ClCompile>
     <ClCompile Include="src\Harboe\Log.cpp">

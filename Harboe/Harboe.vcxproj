@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -157,6 +160,8 @@
     <ClInclude Include="src\Harboe\Events\Event.h" />
     <ClInclude Include="src\Harboe\Events\KeyEvent.h" />
     <ClInclude Include="src\Harboe\Events\MouseEvent.h" />
+    <ClInclude Include="src\Harboe\Layer.h" />
+    <ClInclude Include="src\Harboe\LayerStack.h" />
     <ClInclude Include="src\Harboe\Log.h" />
     <ClInclude Include="src\Harboe\Window.h" />
     <ClInclude Include="src\Platform\WindowsWindow.h" />
@@ -164,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Harboe\Application.cpp" />
+    <ClCompile Include="src\Harboe\Layer.cpp" />
+    <ClCompile Include="src\Harboe\LayerStack.cpp" />
     <ClCompile Include="src\Harboe\Log.cpp" />
     <ClCompile Include="src\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\hbpch.cpp">

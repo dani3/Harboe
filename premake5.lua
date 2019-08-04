@@ -64,14 +64,17 @@ project "Harboe"
 
     filter "configurations:Debug"
         defines { "HB_DEBUG", "HB_ENABLE_ASSERTS" }
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "HB_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "HB_Dist"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -111,12 +114,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "HB_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "HB_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "HB_Dist"
+        buildoptions "/MD"
         optimize "On"
