@@ -7,8 +7,14 @@
     <Filter Include="Harboe\Events">
       <UniqueIdentifier>{DA50A4BE-4611-20F5-0F4C-69727BCB64D1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Harboe\ImGui">
+      <UniqueIdentifier>{6053DB4B-4CB6-6AF0-F53B-A3A6E17D3673}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +40,9 @@
     <ClInclude Include="src\Harboe\Events\MouseEvent.h">
       <Filter>Harboe\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Harboe\ImGui\ImGuiLayer.h">
+      <Filter>Harboe\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Harboe\Layer.h">
       <Filter>Harboe</Filter>
     </ClInclude>
@@ -46,6 +55,9 @@
     <ClInclude Include="src\Harboe\Window.h">
       <Filter>Harboe</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\WindowsWindow.h">
       <Filter>Platform</Filter>
     </ClInclude>
@@ -55,6 +67,9 @@
     <ClCompile Include="src\Harboe\Application.cpp">
       <Filter>Harboe</Filter>
     </ClCompile>
+    <ClCompile Include="src\Harboe\ImGui\ImGuiLayer.cpp">
+      <Filter>Harboe\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Harboe\Layer.cpp">
       <Filter>Harboe</Filter>
     </ClCompile>
@@ -63,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="src\Harboe\Log.cpp">
       <Filter>Harboe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\WindowsWindow.cpp">
       <Filter>Platform</Filter>

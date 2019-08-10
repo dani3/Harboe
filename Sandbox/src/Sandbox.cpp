@@ -23,6 +23,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushLayer(new Harboe::ImGuiLayer());
 	}
 
 	~Sandbox()

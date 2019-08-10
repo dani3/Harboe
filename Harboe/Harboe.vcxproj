@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>hbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HB_PLATFORM_WINDOWS;HB_BUILD_DLL;GLFW_INCLUDE_NONE;HB_DEBUG;HB_ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>hbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HB_PLATFORM_WINDOWS;HB_BUILD_DLL;GLFW_INCLUDE_NONE;HB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>hbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HB_PLATFORM_WINDOWS;HB_BUILD_DLL;GLFW_INCLUDE_NONE;HB_Dist;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -160,18 +160,22 @@
     <ClInclude Include="src\Harboe\Events\Event.h" />
     <ClInclude Include="src\Harboe\Events\KeyEvent.h" />
     <ClInclude Include="src\Harboe\Events\MouseEvent.h" />
+    <ClInclude Include="src\Harboe\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Harboe\Layer.h" />
     <ClInclude Include="src\Harboe\LayerStack.h" />
     <ClInclude Include="src\Harboe\Log.h" />
     <ClInclude Include="src\Harboe\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\WindowsWindow.h" />
     <ClInclude Include="src\hbpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Harboe\Application.cpp" />
+    <ClCompile Include="src\Harboe\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Harboe\Layer.cpp" />
     <ClCompile Include="src\Harboe\LayerStack.cpp" />
     <ClCompile Include="src\Harboe\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\hbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -183,6 +187,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\imGui.vcxproj">
+      <Project>{E00FA80F-4C24-D0C0-15A6-73208179CCF1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

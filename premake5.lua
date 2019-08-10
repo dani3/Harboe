@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Harboe/vendor/GLFW/include"
 IncludeDir["Glad"] = "Harboe/vendor/GLAD/include"
+IncludeDir["ImGui"] = "Harboe/vendor/imgui"
 
 include "Harboe/vendor/GLFW"
 include "Harboe/vendor/Glad"
+include "Harboe/vendor/imgui"
 
 project "Harboe"
     location "Harboe"
@@ -40,13 +42,15 @@ project "Harboe"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
     links
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 
@@ -84,7 +88,7 @@ project "Harboe"
 
 project "Sandbox"
     location "Sandbox"
-    kind "ConsoleApp"    
+    kind "ConsoleApp"
     language "C++"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")

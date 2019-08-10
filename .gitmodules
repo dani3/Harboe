@@ -4,3 +4,6 @@
 [submodule "Harboe/vendor/GLFW"]
 	path = Harboe/vendor/GLFW
 	url = https://github.com/TheCherno/glfw.git
+[submodule "Harboe/vendor/imgui"]
+	path = Harboe/vendor/imgui
+	url = https://github.com/ocornut/imgui.git
