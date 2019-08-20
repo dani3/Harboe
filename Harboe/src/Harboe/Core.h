@@ -19,3 +19,5 @@
 #	define HB_ASSERT(x, ...)
 #	define HB_CORE_ASSERT(x, ...)
 #endif
+
+#define HB_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
