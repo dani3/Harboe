@@ -158,12 +158,14 @@
     <ClInclude Include="src\Harboe\Events\KeyEvent.h" />
     <ClInclude Include="src\Harboe\Events\MouseEvent.h" />
     <ClInclude Include="src\Harboe\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Harboe\Input.h" />
     <ClInclude Include="src\Harboe\Layer.h" />
     <ClInclude Include="src\Harboe\LayerStack.h" />
     <ClInclude Include="src\Harboe\Log.h" />
     <ClInclude Include="src\Harboe\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Platform\WindowsWindow.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hbpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +175,8 @@
     <ClCompile Include="src\Harboe\LayerStack.cpp" />
     <ClCompile Include="src\Harboe\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
-    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
