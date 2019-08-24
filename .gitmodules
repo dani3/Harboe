@@ -7,3 +7,6 @@
 [submodule "Harboe/vendor/imgui"]
 	path = Harboe/vendor/imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "Harboe/vendor/glm"]
+	path = Harboe/vendor/glm
+	url = https://github.com/g-truc/glm.git
