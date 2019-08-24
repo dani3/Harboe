@@ -7,6 +7,8 @@
 #include "Harboe/Events/Event.h"
 #include "Harboe/Events/ApplicationEvent.h"
 
+#include "Harboe/ImGui/ImGuiLayer.h"
+
 namespace Harboe
 {
 	class HARBOE_API Application
@@ -29,6 +31,7 @@ namespace Harboe
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
