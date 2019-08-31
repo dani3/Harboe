@@ -10,7 +10,7 @@
 #include "Harboe/MouseButtonCodes.h"
 #include "Harboe/KeyCodes.h"
 
-#include "Harboe/ImGui/ImGuiLayer.h";
+#include "Harboe/ImGui/ImGuiLayer.h"
 
 // Entry point
 #include "Harboe/EntryPoint.h"

@@ -47,6 +47,6 @@ namespace Harboe
 
 		glfwGetCursorPos(window, &xPos, &yPos);
 
-		return { xPos, yPos };
+		return { (float) xPos, (float) yPos };
 	}
 }
