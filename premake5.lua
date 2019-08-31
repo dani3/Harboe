@@ -109,6 +109,7 @@ project "Sandbox"
     {
         "Harboe/vendor/spdlog/include",
         "Harboe/src",
+        "Harboe/vendor",
         "%{IncludeDir.glm}"
     }
 

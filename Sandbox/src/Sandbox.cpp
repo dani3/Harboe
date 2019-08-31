@@ -1,5 +1,7 @@
 #include <Harboe.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Harboe::Layer
 {
 public:
@@ -12,6 +14,13 @@ public:
 		{
 			HB_TRACE("Tab key is pressed");
 		}
+	}
+
+	virtual void OnImGuiRender() override 
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("CUCU");
+		ImGui::End();
 	}
 
 	void OnEvent(Harboe::Event& event) override
