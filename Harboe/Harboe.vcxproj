@@ -155,7 +155,9 @@
     <ClInclude Include="src\Harboe\LayerStack.h" />
     <ClInclude Include="src\Harboe\Log.h" />
     <ClInclude Include="src\Harboe\MouseButtonCodes.h" />
+    <ClInclude Include="src\Harboe\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Harboe\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hbpch.h" />
@@ -535,6 +537,7 @@
     <ClCompile Include="src\Harboe\Layer.cpp" />
     <ClCompile Include="src\Harboe\LayerStack.cpp" />
     <ClCompile Include="src\Harboe\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hbpch.cpp">

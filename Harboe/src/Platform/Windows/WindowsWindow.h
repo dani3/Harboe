@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Harboe/Window.h"
+#include "Harboe/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -31,6 +32,8 @@ namespace Harboe
 
 	private:
 		GLFWwindow* m_Window;
+
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

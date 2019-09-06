@@ -5,7 +5,7 @@
 #include "Harboe/Events/MouseEvent.h"
 #include "Harboe/Events/KeyEvent.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h";
 
 namespace Harboe
 {
@@ -38,7 +38,7 @@ namespace Harboe
 		m_Data.Height = props.Height;
 
 		HB_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
-
+		
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
@@ -53,12 +53,9 @@ namespace Harboe
 			, m_Data.Title.c_str()
 			, nullptr
 			, nullptr);
-		
-		glfwMakeContextCurrent(m_Window);
 
-		// Initialize Glad
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		HB_CORE_ASSERT(status, "Failed to initialize Glad");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -164,7 +161,7 @@ namespace Harboe
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 	
 	void WindowsWindow::SetVSync(bool enabled)
