@@ -18,9 +18,7 @@ public:
 
 	virtual void OnImGuiRender() override 
 	{
-		ImGui::Begin("Test");
-		ImGui::Text("CUCU");
-		ImGui::End();
+
 	}
 
 	void OnEvent(Harboe::Event& event) override
