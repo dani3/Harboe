@@ -6,6 +6,7 @@
 #include "Harboe/LayerStack.h"
 #include "Harboe/Events/Event.h"
 #include "Harboe/Events/ApplicationEvent.h"
+#include "Harboe/Renderer/Shader.h"
 
 #include "Harboe/ImGui/ImGuiLayer.h"
 
@@ -39,6 +40,8 @@ namespace Harboe
 		unsigned int m_VertexArray;
 		unsigned int m_VertexBuffer;
 		unsigned int m_IndexBuffer;
+
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		static Application* s_Instance;

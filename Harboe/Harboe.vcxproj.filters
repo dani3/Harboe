@@ -1215,6 +1215,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Harboe\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Harboe\Application.cpp">
@@ -1247,5 +1248,6 @@
     <ClCompile Include="src\hbpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Harboe\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
