@@ -93,6 +93,5 @@ namespace Harboe
 	{
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
-		glClear(GL_COLOR_BUFFER_BIT);
 	}
 }

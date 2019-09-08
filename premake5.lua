@@ -66,12 +66,11 @@ project "Harboe"
         defines
         {
             "HB_PLATFORM_WINDOWS",
-            "HB_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         }
 
     filter "configurations:Debug"
-        defines { "HB_DEBUG", "HB_ENABLE_ASSERTS" }
+        defines "HB_DEBUG"
         runtime "Debug"
         symbols "on"
 

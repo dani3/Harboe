@@ -43,7 +43,7 @@ namespace Harboe
 		{
 			int success = glfwInit();
 			HB_CORE_ASSERT(success, "Could not initialize GLFW");
-
+			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 
@@ -61,7 +61,6 @@ namespace Harboe
 		SetVSync(true);
 
 		// Set GLFW callbacks
-		glfwSetErrorCallback(GLFWErrorCallback);
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
