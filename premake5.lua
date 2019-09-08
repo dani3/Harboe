@@ -13,7 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Harboe/vendor/GLFW/include"
-IncludeDir["Glad"] = "Harboe/vendor/GLAD/include"
+IncludeDir["Glad"] = "Harboe/vendor/Glad/include"
 IncludeDir["ImGui"] = "Harboe/vendor/imgui"
 IncludeDir["glm"] = "Harboe/vendor/glm"
 

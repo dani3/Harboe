@@ -5,7 +5,7 @@
 #include "Harboe/Events/MouseEvent.h"
 #include "Harboe/Events/KeyEvent.h"
 
-#include "Platform/OpenGL/OpenGLContext.h";
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Harboe
 {
