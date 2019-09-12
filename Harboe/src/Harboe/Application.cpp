@@ -1,9 +1,9 @@
 #include "hbpch.h"
 #include "Application.h"
 
-#include <glad/glad.h>
-
 #include "Input.h"
+
+#include "Harboe/Renderer/Renderer.h"
 
 namespace Harboe
 {
@@ -170,16 +170,18 @@ namespace Harboe
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::Clear();
 
-			m_BlueShader->Bind();
-			m_SquareVertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::BeginScene();
+			{
+				m_BlueShader->Bind();
+				Renderer::Submit(m_SquareVertexArray);
+				m_Shader->Bind();
+				Renderer::Submit(m_VertexArray);
 
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+				Renderer::EndScene();
+			}
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
