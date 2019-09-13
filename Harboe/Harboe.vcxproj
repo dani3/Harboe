@@ -157,6 +157,7 @@
     <ClInclude Include="src\Harboe\MouseButtonCodes.h" />
     <ClInclude Include="src\Harboe\Renderer\Buffer.h" />
     <ClInclude Include="src\Harboe\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Harboe\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Harboe\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Harboe\Renderer\Renderer.h" />
     <ClInclude Include="src\Harboe\Renderer\RendererAPI.h" />
@@ -548,6 +549,7 @@
     <ClCompile Include="src\Harboe\LayerStack.cpp" />
     <ClCompile Include="src\Harboe\Log.cpp" />
     <ClCompile Include="src\Harboe\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Harboe\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Harboe\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Harboe\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Harboe\Renderer\RendererAPI.cpp" />

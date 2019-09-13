@@ -9,6 +9,7 @@
 #include "Harboe/Renderer/Shader.h"
 #include "Harboe/Renderer/Buffer.h"
 #include "Harboe/Renderer/VertexArray.h"
+#include "Harboe/Renderer/OrthographicCamera.h"
 
 #include "Harboe/ImGui/ImGuiLayer.h"
 
@@ -44,6 +45,8 @@ namespace Harboe
 		std::shared_ptr<VertexArray> m_VertexArray;
 
 		std::shared_ptr<VertexArray> m_SquareVertexArray;
+
+		OrthographicCamera m_Camera;
 
 	private:
 		static Application* s_Instance;
