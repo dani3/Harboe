@@ -6,7 +6,7 @@ class ExampleLayer : public Harboe::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example layer"), m_Camera(-1.6f, 1.6, -0.9f, 0.9f) 
+		: Layer("Example layer"), m_Camera(-1.6f, 1.6, -0.9f, 0.9f), m_CameraPosition(0.0f)
 	{
 		m_VertexArray.reset(Harboe::VertexArray::Create());
 
@@ -126,10 +126,29 @@ public:
 		m_BlueShader.reset(Harboe::Shader::Create(blueShaderVertexSrc, blueShaderfragmentSrc));
 	}
 
-	void OnUpdate() override
+	virtual void OnUpdate() override
 	{
+		if (Harboe::Input::IsKeyPressed(HB_KEY_LEFT))
+			m_CameraPosition.x -= m_CameraMoveSpeed;
+		else if (Harboe::Input::IsKeyPressed(HB_KEY_RIGHT))
+			m_CameraPosition.x += m_CameraMoveSpeed;
+
+		if (Harboe::Input::IsKeyPressed(HB_KEY_DOWN))
+			m_CameraPosition.y -= m_CameraMoveSpeed;
+		else if (Harboe::Input::IsKeyPressed(HB_KEY_UP))
+			m_CameraPosition.y += m_CameraMoveSpeed;
+
+		if (Harboe::Input::IsKeyPressed(HB_KEY_A))
+			m_CameraRotation += m_CameraRotationSpeed;
+
+		if (Harboe::Input::IsKeyPressed(HB_KEY_D))
+			m_CameraRotation -= m_CameraRotationSpeed;
+
 		Harboe::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Harboe::RenderCommand::Clear();
+
+		m_Camera.SetPosition(m_CameraPosition);
+		m_Camera.SetRotation(m_CameraRotation);
 
 		Harboe::Renderer::BeginScene(m_Camera);
 
@@ -144,9 +163,9 @@ public:
 
 	}
 
-	void OnEvent(Harboe::Event& event) override
+	virtual void OnEvent(Harboe::Event& event) override
 	{
-		
+
 	}
 
 private:
@@ -157,6 +176,12 @@ private:
 	std::shared_ptr<Harboe::VertexArray> m_SquareVertexArray;
 
 	Harboe::OrthographicCamera m_Camera;
+	glm::vec3 m_CameraPosition;
+
+	float m_CameraMoveSpeed = 0.025f;
+
+	float m_CameraRotation = 0.0f;
+	float m_CameraRotationSpeed = 2.0f;
 };
 
 class Sandbox : public Harboe::Application
