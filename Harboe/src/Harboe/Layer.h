@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Harboe/Core.h"
+#include "Harboe/Core/Timestep.h"
 #include "Harboe/Events/Event.h"
 
 namespace Harboe
@@ -13,7 +14,7 @@ namespace Harboe
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep timestep) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

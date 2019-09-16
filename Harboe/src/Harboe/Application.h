@@ -7,6 +7,8 @@
 #include "Harboe/Events/Event.h"
 #include "Harboe/Events/ApplicationEvent.h"
 
+#include "Harboe/Core/Timestep.h"
+
 #include "Harboe/ImGui/ImGuiLayer.h"
 
 namespace Harboe
@@ -35,6 +37,8 @@ namespace Harboe
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static Application* s_Instance;

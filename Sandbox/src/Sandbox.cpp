@@ -126,23 +126,25 @@ public:
 		m_BlueShader.reset(Harboe::Shader::Create(blueShaderVertexSrc, blueShaderfragmentSrc));
 	}
 
-	virtual void OnUpdate() override
+	virtual void OnUpdate(Harboe::Timestep timestep) override
 	{
+
+
 		if (Harboe::Input::IsKeyPressed(HB_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
 		else if (Harboe::Input::IsKeyPressed(HB_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * timestep;
 
 		if (Harboe::Input::IsKeyPressed(HB_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
 		else if (Harboe::Input::IsKeyPressed(HB_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * timestep;
 
 		if (Harboe::Input::IsKeyPressed(HB_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * timestep;
 
 		if (Harboe::Input::IsKeyPressed(HB_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * timestep;
 
 		Harboe::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Harboe::RenderCommand::Clear();
@@ -178,10 +180,10 @@ private:
 	Harboe::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
 
-	float m_CameraMoveSpeed = 0.025f;
+	float m_CameraMoveSpeed = 1.00f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 class Sandbox : public Harboe::Application

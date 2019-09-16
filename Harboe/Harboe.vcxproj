@@ -143,6 +143,7 @@
     <ClInclude Include="src\Harboe.h" />
     <ClInclude Include="src\Harboe\Application.h" />
     <ClInclude Include="src\Harboe\Core.h" />
+    <ClInclude Include="src\Harboe\Core\Timestep.h" />
     <ClInclude Include="src\Harboe\EntryPoint.h" />
     <ClInclude Include="src\Harboe\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Harboe\Events\Event.h" />

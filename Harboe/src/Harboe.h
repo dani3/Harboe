@@ -6,6 +6,8 @@
 #include "Harboe/Layer.h"
 #include "Harboe/Log.h"
 
+#include "Harboe/Core/Timestep.h"
+
 #include "Harboe/Input.h"
 #include "Harboe/MouseButtonCodes.h"
 #include "Harboe/KeyCodes.h"
