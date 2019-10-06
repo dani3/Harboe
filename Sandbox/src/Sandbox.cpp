@@ -21,7 +21,7 @@ public:
 			 0.0f,  0.5f, 0.0f,	0.0f, 0.5f, 0.8f, 1.0f
 		};
 
-		std::shared_ptr<Harboe::VertexBuffer> vertexBuffer;
+		Harboe::Ref<Harboe::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Harboe::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		Harboe::BufferLayout layout = {
@@ -34,7 +34,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Harboe::IndexBuffer> indexBuffer;
+		Harboe::Ref<Harboe::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Harboe::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -47,7 +47,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<Harboe::VertexBuffer> squareVertexBuffer;
+		Harboe::Ref<Harboe::VertexBuffer> squareVertexBuffer;
 		squareVertexBuffer.reset(Harboe::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		Harboe::BufferLayout squareLayout = {
@@ -59,7 +59,7 @@ public:
 		m_SquareVertexArray->AddVertexBuffer(squareVertexBuffer);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Harboe::IndexBuffer> squareIndexBuffer;
+		Harboe::Ref<Harboe::IndexBuffer> squareIndexBuffer;
 		squareIndexBuffer.reset(Harboe::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
 
@@ -194,11 +194,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<Harboe::Shader> m_Shader;
-	std::shared_ptr<Harboe::Shader> m_FlatColorShader;
-	std::shared_ptr<Harboe::VertexArray> m_VertexArray;
+	Harboe::Ref<Harboe::Shader> m_Shader;
+	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
 
-	std::shared_ptr<Harboe::VertexArray> m_SquareVertexArray;
+	Harboe::Ref<Harboe::VertexArray> m_VertexArray;
+	Harboe::Ref<Harboe::VertexArray> m_SquareVertexArray;
 
 	Harboe::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

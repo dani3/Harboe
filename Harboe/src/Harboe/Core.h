@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef HB_PLATFORM_WINDOWS
 #   if HB_DYNAMIC_LINK
 #		ifdef HB_BUILD_DLL
@@ -25,3 +27,12 @@
 #endif
 
 #define HB_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace Harboe
+{
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+}
