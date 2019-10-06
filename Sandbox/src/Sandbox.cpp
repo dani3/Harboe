@@ -1,7 +1,11 @@
 #include <Harboe.h>
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include <imgui/imgui.h>
+
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public Harboe::Layer
 {
@@ -96,7 +100,7 @@ public:
 
 		m_Shader.reset(Harboe::Shader::Create(vertexSrc, fragmentSrc));
 
-		std::string blueShaderVertexSrc = R"(
+		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 
 			layout(location = 0) in vec3 a_Position;
@@ -113,20 +117,22 @@ public:
 			}
 		)";
 
-		std::string blueShaderfragmentSrc = R"(
+		std::string flatColorShaderfragmentSrc = R"(
 			#version 330 core
 
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_Position;
 
+			uniform vec3 u_Color;
+
 			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1);
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_BlueShader.reset(Harboe::Shader::Create(blueShaderVertexSrc, blueShaderfragmentSrc));
+		m_FlatColorShader.reset(Harboe::Shader::Create(flatColorShaderVertexSrc, flatColorShaderfragmentSrc));
 	}
 
 	virtual void OnUpdate(Harboe::Timestep timestep) override
@@ -157,13 +163,16 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+
 		for (int x = 0; x < 20; ++x)
 		{
 			for (int y = 0; y < 20; ++y)
 			{
 				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				Harboe::Renderer::Submit(m_BlueShader, m_SquareVertexArray, transform);
+				Harboe::Renderer::Submit(m_FlatColorShader, m_SquareVertexArray, transform);
 			}
 		}
 
@@ -174,7 +183,9 @@ public:
 
 	virtual void OnImGuiRender() override 
 	{
-
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Square color", glm::value_ptr(m_SquareColor));
+		ImGui::End();
 	}
 
 	virtual void OnEvent(Harboe::Event& event) override
@@ -184,7 +195,7 @@ public:
 
 private:
 	std::shared_ptr<Harboe::Shader> m_Shader;
-	std::shared_ptr<Harboe::Shader> m_BlueShader;
+	std::shared_ptr<Harboe::Shader> m_FlatColorShader;
 	std::shared_ptr<Harboe::VertexArray> m_VertexArray;
 
 	std::shared_ptr<Harboe::VertexArray> m_SquareVertexArray;
@@ -196,6 +207,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public Harboe::Application

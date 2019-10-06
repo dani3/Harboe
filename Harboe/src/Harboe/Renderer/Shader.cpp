@@ -1,7 +1,7 @@
 #include "hbpch.h"
 #include "Shader.h"
 
-#include "Harboe/Renderer/Renderer.h"
+#include "Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Harboe
