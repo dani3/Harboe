@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "Harboe/vendor/GLFW/include"
 IncludeDir["Glad"] = "Harboe/vendor/Glad/include"
 IncludeDir["ImGui"] = "Harboe/vendor/imgui"
 IncludeDir["glm"] = "Harboe/vendor/glm"
+IncludeDir["stb_image"] = "Harboe/vendor/stb_image"
 
 include "Harboe/vendor/GLFW"
 include "Harboe/vendor/Glad"
@@ -38,6 +39,8 @@ project "Harboe"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
@@ -49,7 +52,8 @@ project "Harboe"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}"
     }
 
     links

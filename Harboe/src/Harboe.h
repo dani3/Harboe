@@ -19,6 +19,7 @@
 
 #include "Harboe/Renderer/Shader.h"
 #include "Harboe/Renderer/Buffer.h"
+#include "Harboe/Renderer/Texture.h"
 #include "Harboe/Renderer/VertexArray.h"
 
 #include "Harboe/Renderer/OrthographicCamera.h"

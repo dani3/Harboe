@@ -40,18 +40,19 @@ public:
 
 		m_SquareVertexArray.reset(Harboe::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.5f,  0.5f, 0.0f,
-			-0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
 		Harboe::Ref<Harboe::VertexBuffer> squareVertexBuffer;
 		squareVertexBuffer.reset(Harboe::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		Harboe::BufferLayout squareLayout = {
-			{ Harboe::ShaderDataType::Float3, "a_Position" }
+			{ Harboe::ShaderDataType::Float3, "a_Position" },
+			{ Harboe::ShaderDataType::Float2, "a_TexCoord" }
 		};
 
 		squareVertexBuffer->SetLayout(squareLayout);
@@ -108,21 +109,16 @@ public:
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
 
-			out vec3 v_Position;
-
 			void main()
 			{
-				v_Position = a_Position;
 				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
 			}
 		)";
 
-		std::string flatColorShaderfragmentSrc = R"(
+		std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 
 			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
 
 			uniform vec3 u_Color;
 
@@ -132,7 +128,47 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Harboe::Shader::Create(flatColorShaderVertexSrc, flatColorShaderfragmentSrc));
+		m_FlatColorShader.reset(Harboe::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TexCoord;
+
+			uniform sampler2D u_Texture;
+
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(Harboe::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+	
+		m_Texture = Harboe::Texture2D::Create("assets/textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	virtual void OnUpdate(Harboe::Timestep timestep) override
@@ -176,7 +212,8 @@ public:
 			}
 		}
 
-		Harboe::Renderer::Submit(m_Shader, m_VertexArray);
+		m_Texture->Bind();
+		Harboe::Renderer::Submit(m_TextureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		Harboe::Renderer::EndScene();
 	}
@@ -196,9 +233,12 @@ public:
 private:
 	Harboe::Ref<Harboe::Shader> m_Shader;
 	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
+	Harboe::Ref<Harboe::Shader> m_TextureShader;
 
 	Harboe::Ref<Harboe::VertexArray> m_VertexArray;
 	Harboe::Ref<Harboe::VertexArray> m_SquareVertexArray;
+
+	Harboe::Ref<Harboe::Texture2D> m_Texture;
 
 	Harboe::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
