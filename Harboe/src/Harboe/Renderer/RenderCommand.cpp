@@ -6,5 +6,5 @@
 
 namespace Harboe
 {
-	RendererAPI* RenderCommand::s_RedererAPI = new OpenGLRendererAPI();
+	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI();
 }

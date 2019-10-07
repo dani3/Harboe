@@ -1,6 +1,7 @@
 #include "hbpch.h"
 #include "Application.h"
 
+#include "Harboe/Renderer/Renderer.h"
 #include "Input.h"
 
 #include <GLFW/glfw3.h>
@@ -16,6 +17,8 @@ namespace Harboe
 
 		m_Window = Scope<Window>(Window::Create());
 		m_Window->SetEventCallback(HB_BIND_EVENT_FN(Application::OnEvent));
+
+		Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
