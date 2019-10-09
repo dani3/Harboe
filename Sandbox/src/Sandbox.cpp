@@ -64,43 +64,6 @@ public:
 		squareIndexBuffer.reset(Harboe::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
 
-		std::string vertexSrc = R"(
-			#version 330 core
-
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-			out vec4 v_Color;
-
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			in vec4 v_Color;
-
-			void main()
-			{
-				color = vec4(v_Position * 0.5 + 0.5, 1);
-				color = v_Color;
-			}
-		)";
-
-		m_Shader.reset(Harboe::Shader::Create(vertexSrc, fragmentSrc));
-
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 
@@ -128,14 +91,14 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Harboe::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Harboe::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 		
-		m_TextureShader.reset(Harboe::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 	
 		m_Texture = Harboe::Texture2D::Create("assets/textures/Checkerboard.png");
 
-		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Harboe::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Harboe::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	virtual void OnUpdate(Harboe::Timestep timestep) override
@@ -179,8 +142,10 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Harboe::Renderer::Submit(m_TextureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Harboe::Renderer::Submit(textureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		Harboe::Renderer::EndScene();
 	}
@@ -198,9 +163,9 @@ public:
 	}
 
 private:
-	Harboe::Ref<Harboe::Shader> m_Shader;
+	Harboe::ShaderLibrary m_ShaderLibrary;
+
 	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
-	Harboe::Ref<Harboe::Shader> m_TextureShader;
 
 	Harboe::Ref<Harboe::VertexArray> m_VertexArray;
 	Harboe::Ref<Harboe::VertexArray> m_SquareVertexArray;
