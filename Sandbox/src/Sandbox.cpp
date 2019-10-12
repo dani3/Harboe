@@ -11,7 +11,7 @@ class ExampleLayer : public Harboe::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example layer"), m_Camera(-1.6f, 1.6, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example layer"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Harboe::VertexArray::Create());
 
@@ -101,31 +101,16 @@ public:
 		std::dynamic_pointer_cast<Harboe::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
-	virtual void OnUpdate(Harboe::Timestep timestep) override
+	virtual void OnUpdate(Harboe::Timestep ts) override
 	{
-		if (Harboe::Input::IsKeyPressed(HB_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
-		else if (Harboe::Input::IsKeyPressed(HB_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * timestep;
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Harboe::Input::IsKeyPressed(HB_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
-		else if (Harboe::Input::IsKeyPressed(HB_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * timestep;
-
-		if (Harboe::Input::IsKeyPressed(HB_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * timestep;
-
-		if (Harboe::Input::IsKeyPressed(HB_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * timestep;
-
+		// Render
 		Harboe::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Harboe::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Harboe::Renderer::BeginScene(m_Camera);
+		Harboe::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -157,9 +142,9 @@ public:
 		ImGui::End();
 	}
 
-	virtual void OnEvent(Harboe::Event& event) override
+	virtual void OnEvent(Harboe::Event& e) override
 	{
-
+		m_CameraController.OnEvent(e);
 	}
 
 private:
@@ -172,13 +157,7 @@ private:
 
 	Harboe::Ref<Harboe::Texture2D> m_Texture;
 
-	Harboe::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-
-	float m_CameraMoveSpeed = 1.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Harboe::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

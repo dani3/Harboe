@@ -23,6 +23,7 @@
 #include "Harboe/Renderer/VertexArray.h"
 
 #include "Harboe/Renderer/OrthographicCamera.h"
+#include "Harboe/OrthographicCameraController.h"
 
 // Entry point
 #include "Harboe/EntryPoint.h"
