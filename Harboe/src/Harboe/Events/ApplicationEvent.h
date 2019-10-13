@@ -7,7 +7,7 @@ namespace Harboe
 	class HARBOE_API WindowResizeEvent : public Event
 	{
 	public:
-		WindowResizeEvent(unsigned int height, unsigned int width)
+		WindowResizeEvent(unsigned int width, unsigned int height)
 			: m_Height(height), m_Width(width) {}
 
 		inline unsigned int GetHeight() const { return m_Height; }
