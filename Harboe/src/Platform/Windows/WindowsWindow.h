@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Harboe/Window.h"
+#include "Harboe/Core/Window.h"
 #include "Harboe/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

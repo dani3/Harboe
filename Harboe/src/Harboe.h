@@ -2,15 +2,15 @@
 
 // For use by Harboe applications
 
-#include "Harboe/Application.h"
-#include "Harboe/Layer.h"
-#include "Harboe/Log.h"
+#include "Harboe/Core/Application.h"
+#include "Harboe/Core/Layer.h"
+#include "Harboe/Core/Log.h"
 
 #include "Harboe/Core/Timestep.h"
 
-#include "Harboe/Input.h"
-#include "Harboe/MouseButtonCodes.h"
-#include "Harboe/KeyCodes.h"
+#include "Harboe/Core/Input.h"
+#include "Harboe/Core/MouseButtonCodes.h"
+#include "Harboe/Core/KeyCodes.h"
 
 #include "Harboe/ImGui/ImGuiLayer.h"
 
@@ -23,7 +23,7 @@
 #include "Harboe/Renderer/VertexArray.h"
 
 #include "Harboe/Renderer/OrthographicCamera.h"
-#include "Harboe/OrthographicCameraController.h"
+#include "Harboe/Renderer/OrthographicCameraController.h"
 
 // Entry point
-#include "Harboe/EntryPoint.h"
+#include "Harboe/Core/EntryPoint.h"

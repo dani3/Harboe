@@ -2,7 +2,7 @@
 
 #include "hbpch.h"
 
-#include "Harboe/Core.h"
+#include "Harboe/Core/Core.h"
 #include "Harboe/Events/Event.h"
 
 namespace Harboe

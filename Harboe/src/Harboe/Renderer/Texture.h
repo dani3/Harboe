@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Harboe/Core.h"
+#include "Harboe/Core/Core.h"
 
 namespace Harboe
 {

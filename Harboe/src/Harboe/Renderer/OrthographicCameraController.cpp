@@ -2,8 +2,8 @@
 
 #include "OrthographicCameraController.h"
 
-#include "Harboe/Input.h"
-#include "Harboe/KeyCodes.h"
+#include "Harboe/Core/Input.h"
+#include "Harboe/Core/KeyCodes.h"
 
 namespace Harboe
 {

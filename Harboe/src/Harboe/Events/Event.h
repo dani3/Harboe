@@ -1,7 +1,7 @@
 #pragma once
 
 #include "hbpch.h"
-#include "Harboe/Core.h"
+#include "Harboe/Core/Core.h"
 
 namespace Harboe
 {

@@ -1,7 +1,7 @@
 #include "hbpch.h"
 #include "WindowsInput.h"
 
-#include "Harboe/Application.h"
+#include "Harboe/Core/Application.h"
 
 #include "GLFW/glfw3.h"
 

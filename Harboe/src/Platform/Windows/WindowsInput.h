@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Harboe/Input.h"
+#include "Harboe/Core/Input.h"
 
 namespace Harboe
 {

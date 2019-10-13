@@ -57,17 +57,38 @@
     <ClInclude Include="src\Harboe.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Harboe\Application.h">
-      <Filter>src\Harboe</Filter>
+    <ClInclude Include="src\Harboe\Core\Application.h">
+      <Filter>src\Harboe\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Harboe\Core.h">
-      <Filter>src\Harboe</Filter>
+    <ClInclude Include="src\Harboe\Core\Core.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\EntryPoint.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\Input.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\KeyCodes.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\Layer.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\LayerStack.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\Log.h">
+      <Filter>src\Harboe\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Core\MouseButtonCodes.h">
+      <Filter>src\Harboe\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Harboe\Core\Timestep.h">
       <Filter>src\Harboe\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Harboe\EntryPoint.h">
-      <Filter>src\Harboe</Filter>
+    <ClInclude Include="src\Harboe\Core\Window.h">
+      <Filter>src\Harboe\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Harboe\Events\ApplicationEvent.h">
       <Filter>src\Harboe\Events</Filter>
@@ -84,24 +105,6 @@
     <ClInclude Include="src\Harboe\ImGui\ImGuiLayer.h">
       <Filter>src\Harboe\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Harboe\Input.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\KeyCodes.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\Layer.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\LayerStack.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\Log.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\MouseButtonCodes.h">
-      <Filter>src\Harboe</Filter>
-    </ClInclude>
     <ClInclude Include="src\Harboe\Renderer\Buffer.h">
       <Filter>src\Harboe\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\Harboe\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Harboe\Renderer\OrthographicCamera.h">
+      <Filter>src\Harboe\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Harboe\Renderer\OrthographicCameraController.h">
       <Filter>src\Harboe\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Harboe\Renderer\RenderCommand.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\Harboe\Renderer\VertexArray.h">
       <Filter>src\Harboe\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Harboe\Window.h">
-      <Filter>src\Harboe</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1266,11 +1269,19 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Harboe\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Harboe\Application.cpp">
-      <Filter>src\Harboe</Filter>
+    <ClCompile Include="src\Harboe\Core\Application.cpp">
+      <Filter>src\Harboe\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Core\Layer.cpp">
+      <Filter>src\Harboe\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Core\LayerStack.cpp">
+      <Filter>src\Harboe\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Core\Log.cpp">
+      <Filter>src\Harboe\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Harboe\ImGui\ImGuiBuild.cpp">
       <Filter>src\Harboe\ImGui</Filter>
@@ -1278,19 +1289,13 @@
     <ClCompile Include="src\Harboe\ImGui\ImGuiLayer.cpp">
       <Filter>src\Harboe\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Harboe\Layer.cpp">
-      <Filter>src\Harboe</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Harboe\LayerStack.cpp">
-      <Filter>src\Harboe</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Harboe\Log.cpp">
-      <Filter>src\Harboe</Filter>
-    </ClCompile>
     <ClCompile Include="src\Harboe\Renderer\Buffer.cpp">
       <Filter>src\Harboe\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Harboe\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Harboe\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Harboe\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Harboe\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Harboe\Renderer\RenderCommand.cpp">
@@ -1341,6 +1346,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Harboe\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>
