@@ -7,7 +7,7 @@
 
 namespace Harboe
 {
-	VertexArray* VertexArray::Create()
+	Ref<VertexArray> VertexArray::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
@@ -19,7 +19,7 @@ namespace Harboe
 
 			case RendererAPI::API::OpenGL:
 			{
-				return new OpenGLVertexArray();
+				return std::make_shared<OpenGLVertexArray>();
 			}
 		}
 

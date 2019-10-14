@@ -24,6 +24,3 @@
 
 #include "Harboe/Renderer/OrthographicCamera.h"
 #include "Harboe/Renderer/OrthographicCameraController.h"
-
-// Entry point
-#include "Harboe/Core/EntryPoint.h"

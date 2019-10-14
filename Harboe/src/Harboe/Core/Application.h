@@ -48,5 +48,5 @@ namespace Harboe
 	};
 
 	// To be defined in CLIENT.
-	Application* CreateApplication();
+	Scope<Application> CreateApplication();
 }

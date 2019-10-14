@@ -1,4 +1,5 @@
 #include <Harboe.h>
+#include <Harboe/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,38 +8,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Harboe::Layer
 {
 public:
 	ExampleLayer()
 		: Layer("Example layer"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Harboe::VertexArray::Create());
-
-		float vertices[7 * 3] = {
-			-0.5f, -0.5f, 0.0f, 0.2f, 0.1f, 0.8f, 1.0f,
-			 0.5f, -0.5f, 0.0f, 0.8f, 0.0f, 0.8f, 1.0f,
-			 0.0f,  0.5f, 0.0f,	0.0f, 0.5f, 0.8f, 1.0f
-		};
-
-		Harboe::Ref<Harboe::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Harboe::VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		Harboe::BufferLayout layout = {
-			{ Harboe::ShaderDataType::Float3, "a_Position" },
-			{ Harboe::ShaderDataType::Float4, "a_Color" }
-		};
-
-		vertexBuffer->SetLayout(layout);
-
-		m_VertexArray->AddVertexBuffer(vertexBuffer);
-
-		uint32_t indices[3] = { 0, 1, 2 };
-		Harboe::Ref<Harboe::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Harboe::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-		m_VertexArray->SetIndexBuffer(indexBuffer);
-
-		m_SquareVertexArray.reset(Harboe::VertexArray::Create());
+		m_SquareVertexArray = Harboe::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -48,7 +26,7 @@ public:
 		};
 
 		Harboe::Ref<Harboe::VertexBuffer> squareVertexBuffer;
-		squareVertexBuffer.reset(Harboe::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVertexBuffer = Harboe::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
 		Harboe::BufferLayout squareLayout = {
 			{ Harboe::ShaderDataType::Float3, "a_Position" },
@@ -61,7 +39,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Harboe::Ref<Harboe::IndexBuffer> squareIndexBuffer;
-		squareIndexBuffer.reset(Harboe::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIndexBuffer = Harboe::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
 
 		std::string flatColorShaderVertexSrc = R"(
@@ -152,7 +130,6 @@ private:
 
 	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
 
-	Harboe::Ref<Harboe::VertexArray> m_VertexArray;
 	Harboe::Ref<Harboe::VertexArray> m_SquareVertexArray;
 
 	Harboe::Ref<Harboe::Texture2D> m_Texture;
@@ -167,7 +144,8 @@ class Sandbox : public Harboe::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()
@@ -176,7 +154,7 @@ public:
 	}
 };
 
-Harboe::Application* Harboe::CreateApplication()
+Harboe::Scope<Harboe::Application> Harboe::CreateApplication()
 {
-	return new Sandbox();
+	return std::make_unique<Sandbox>();
 }
