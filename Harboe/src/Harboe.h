@@ -16,6 +16,7 @@
 
 #include "Harboe/Renderer/RenderCommand.h"
 #include "Harboe/Renderer/Renderer.h"
+#include "Harboe/Renderer/Renderer2D.h"
 
 #include "Harboe/Renderer/Shader.h"
 #include "Harboe/Renderer/Buffer.h"
