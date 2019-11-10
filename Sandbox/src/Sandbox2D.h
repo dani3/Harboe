@@ -19,6 +19,8 @@ private:
 	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
 	Harboe::Ref<Harboe::VertexArray> m_SquareVA;
 
+	Harboe::Ref<Harboe::Texture2D> m_CheckerboardTexture;
+
 	Harboe::OrthographicCameraController m_CameraController;
 
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };

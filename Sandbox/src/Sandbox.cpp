@@ -127,9 +127,7 @@ public:
 
 private:
 	Harboe::ShaderLibrary m_ShaderLibrary;
-
 	Harboe::Ref<Harboe::Shader> m_FlatColorShader;
-
 	Harboe::Ref<Harboe::VertexArray> m_SquareVertexArray;
 
 	Harboe::Ref<Harboe::Texture2D> m_Texture;
