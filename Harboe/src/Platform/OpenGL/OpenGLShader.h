@@ -2,7 +2,11 @@
 
 #include "Harboe/Renderer/Shader.h"
 
+#include <string>
+#include <unordered_map>
+
 typedef unsigned int GLenum;
+typedef int GLint;
 
 namespace Harboe
 {
@@ -38,9 +42,12 @@ namespace Harboe
 		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
 		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 
+		GLint GetUniforLocation(const std::string& name) const;
+
 	private:
 		uint32_t m_RendererID;
-
 		std::string m_Name;
+
+		mutable std::unordered_map<std::string, GLint> m_UniformLocationCache;
 	};
 }
