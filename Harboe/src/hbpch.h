@@ -14,6 +14,8 @@
 
 #include "Harboe/Core/Log.h"
 
+#include "Harboe/Debug/Instrumentor.h"
+
 #ifdef HB_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

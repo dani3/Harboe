@@ -152,6 +152,7 @@
     <ClInclude Include="src\Harboe\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Harboe\Core\Timestep.h" />
     <ClInclude Include="src\Harboe\Core\Window.h" />
+    <ClInclude Include="src\Harboe\Debug\Instrumentor.h" />
     <ClInclude Include="src\Harboe\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Harboe\Events\Event.h" />
     <ClInclude Include="src\Harboe\Events\KeyEvent.h" />
@@ -591,4 +592,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>
